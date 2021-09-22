@@ -4,6 +4,9 @@ import styles from "./App.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { selectUser, login, logout } from "./features/useSlice";
 import { auth } from "./firebase";
+import Feed from "./components/Feed";
+import Auth from "./components/Auth";
+import { isArrayLiteralExpression } from "typescript";
 
 const App: React.FC = () => {
   const user = useSelector(selectUser);
@@ -28,7 +31,18 @@ const App: React.FC = () => {
     };
   }, [dispatch]);
 
-  return <div className="App"></div>;
+  return (
+    <>
+      {user.uid ? (
+        <div className={styles.app}>
+          <Feed />
+        </div>
+      ) : (
+        <Auth />
+      )}
+      <div className="App"></div>
+    </>
+  );
 };
 
 export default App;
