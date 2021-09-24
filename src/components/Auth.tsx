@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+
 import Avatar from "@material-ui/core/Avatar";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -9,11 +11,17 @@ import Link from "@material-ui/core/Link";
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import Grid from "@material-ui/core/Grid";
-import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
+import SendIcon from "@material-ui/icons/Send";
+import CameraIcon from "@material-ui/icons/Camera";
+import EmailIcon from "@material-ui/icons/Email";
+import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import AccountCircleIcon from "@material-ui/icons/AccountCircle";
+
 import styles from "./Auth.module.css";
+import { auth, provider, storage } from "../firebase";
 
 function Copyright() {
   return (
