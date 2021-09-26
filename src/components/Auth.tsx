@@ -59,6 +59,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Auth: React.FC = () => {
   const classes = useStyles();
+  const signInGoogle = async () => {
+    await auth.signInWithPopup(provider).catch((err) => alert(err.message));
+  };
 
   return (
     <Grid container component="main" className={classes.root}>
