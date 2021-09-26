@@ -84,7 +84,7 @@ const Auth: React.FC = () => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            {isLogin ? "Login" : "Register"}
           </Typography>
           <form className={classes.form} noValidate>
             <TextField
@@ -124,7 +124,7 @@ const Auth: React.FC = () => {
               color="primary"
               className={classes.submit}
             >
-              Sign In
+              {isLogin ? "Login" : "Register"}
             </Button>
             <Button
               fullWidth
