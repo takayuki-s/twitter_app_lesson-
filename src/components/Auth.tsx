@@ -107,6 +107,15 @@ const Auth: React.FC = () => {
             >
               Sign In
             </Button>
+            <Button
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={signInGoogle}
+            >
+              Sign In With Google
+            </Button>
           </form>
         </div>
       </Grid>
