@@ -31,8 +31,8 @@ const getModalStyle = () => {
 
   return {
     top: `${top}%`,
-    left: `"${left}%`,
-    transform: `translate(-${top}%), -${left}%`,
+    left: `${left}%`,
+    transform: `translate(-${top}%, -${left}%)`,
   };
 };
 
@@ -90,7 +90,7 @@ const Auth: React.FC = () => {
   const [openModal, setOpenModal] = React.useState(false);
   const [resetEmail, setResetEmail] = useState("");
 
-  const sendResetEmail = async (e: React.MouseEvent<HTMLLIElement>) => {
+  const sendResetEmail = async (e: React.MouseEvent<HTMLElement>) => {
     await auth
       .sendPasswordResetEmail(resetEmail)
       .then(() => {
@@ -298,7 +298,7 @@ const Auth: React.FC = () => {
                     setResetEmail(e.target.value);
                   }}
                 />
-                <IconButton>
+                <IconButton onClick={sendResetEmail}>
                   <SendIcon />
                 </IconButton>
               </div>
