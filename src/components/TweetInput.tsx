@@ -88,12 +88,12 @@ const TweetInput = () => {
                   tweetImage ? styles.tweet_addIconLoaded : styles.tweet_addIcon
                 }
               />
+              <input
+                className={styles.tweet_hiddenIcon}
+                type="file"
+                onChange={onChangeImageHandler}
+              />
             </label>
-            <input
-              className={styles.tweet_hiddenIcon}
-              type="file"
-              onChange={onChangeImageHandler}
-            />
           </IconButton>
         </div>
         <Button
