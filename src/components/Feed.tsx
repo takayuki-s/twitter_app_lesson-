@@ -37,6 +37,9 @@ const Feed: React.FC = () => {
   return (
     <div className={styles.feed}>
       <TweetInput />
+      {posts.map((post) => (
+        <h3>{post.id}</h3>
+      ))}
     </div>
   );
 };
