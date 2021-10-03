@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import styles from "./Post.module.css";
+import { db } from "../firebase";
+import firebase from "firebase/app";
+import { useSelector } from "react-redux";
+import { selectUser } from "../features/useSlice";
+import { Avatar } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import MessageIcon from "@material-ui/icons/Message";
+import SendIcon from "@material-ui/icons/Send";
 
-const Post = () => {
+const Post: React.FC = () => {
   return <div></div>;
 };
 
