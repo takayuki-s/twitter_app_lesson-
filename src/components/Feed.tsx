@@ -50,7 +50,6 @@ const Feed: React.FC = () => {
               timestamp={post.timestamp}
               username={post.username}
             />
-            // <h3>{post.id}</h3>
           ))}
         </>
       )}
