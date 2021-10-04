@@ -18,9 +18,49 @@ interface PROPS {
   username: string;
 }
 
+interface COMMENT {
+  id: string;
+  avatar: string;
+  text: string;
+  timestamp: any;
+  username: string;
+}
+
 const Post: React.FC<PROPS> = (props) => {
   const user = useSelector(selectUser);
   const [comment, setComment] = useState("");
+  const [comments, setComments] = useState<COMMENT[]>([
+    {
+      id: "",
+      avatar: "",
+      text: "",
+      timestamp: null,
+      username: "",
+    },
+  ]);
+
+  useEffect(() => {
+    const unSub = db
+      .collection("posts")
+      .doc(props.postId)
+      .collection("comments")
+      .orderBy("timestamp", "desc")
+      .onSnapshot((snapshot) =>
+        setComments(
+          snapshot.docs.map((doc) => ({
+            id: doc.id,
+            avatar: doc.data().avatar,
+            text: doc.data().text,
+            timestamp: doc.data().timestamp,
+            username: doc.data().username,
+          }))
+        )
+      );
+    return () => {
+      unSub();
+    };
+  }, [props.postId]);
+
   const newComment = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     db.collection("posts").doc(props.postId).collection("comments").add({
