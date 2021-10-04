@@ -95,6 +95,18 @@ const Post: React.FC<PROPS> = (props) => {
             <img src={props.image} alt="tweet" />
           </div>
         )}
+
+        {comments.map((com) => (
+          <div key={com.id} className={styles.post_comment}>
+            <Avatar src={com.avatar} />
+            <span className={styles.post_commentUser}>@{com.username}</span>
+            <span className={styles.post_commentText}>@{com.text}</span>
+            <span className={styles.post_headerTime}>
+              {new Date(com.timestamp?.toDate()).toLocaleString()}
+            </span>
+          </div>
+        ))}
+
         <form onSubmit={newComment}>
           <div className={styles.post_form}>
             <input
